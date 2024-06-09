@@ -1,0 +1,23 @@
+vue 引入路由步骤
+1. 安装路由 npm install --save vue-router
+
+2. 配置独立的路由文件
+    src 目录下, 新建文件夹 router 及 index.js 文件
+    在 router/index.js 中配置路由:
+
+3. 引入路由到项目
+    在 main.js 中引入路由文件
+        import router from './router'
+        app.use(router)   
+
+        将 app.use(router) 替换为 app.use(router).mount("#app");
+            createApp(App).mount("#app");  -->  createApp(App).use(router).mount("#app");
+
+4. 在 App.vue 中使用路由
+    <router-view></router-view>
+
+5. 在 App.vue 中指定路由跳转
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+
+

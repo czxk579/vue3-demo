@@ -1,0 +1,36 @@
+
+1. axios 的使用
+    1.1 安装 axios
+        npm install --save axios
+    1.2 引入 axios
+        1.2.1 当前组件引入
+            import axios from "axios"
+        1.2.2 全局引入(main.js文件中)
+            import axios from "axios"
+            const app = createApp(App);
+            app.config.globalProperties.$axios = axios
+            app.mount('#app')
+
+            然后在其他组件中使用
+                this.$axios.get(url).then(res => {
+                    console.log(res)
+                })    
+
+2. axios post 请求
+    post请求参数是需要额外处理的, 需要将参数转换为json字符串
+    安装依赖: npm install --save querystring
+    转换参数格式: qs.stringify({}), 
+    如:
+        import querystring from "querystring"
+        this.$axios.post("http://iwenwiki.com/api/blueberrypai/login.php", querystring.stringify({
+        user_id: "iwen@qq.com",
+        password: "iwen123",
+        verification_code: "crfvw"
+        })).then(res => {
+        console.log(res.data);
+        })
+
+
+
+
+

@@ -1,0 +1,35 @@
+1.前端默认启动地址:
+    http://localhost:8080/ 
+
+2.axios 请求的后端地址:
+    http://iwenwiki.com/api/FingerUnion/list.php
+    后端没有设置支持跨域
+    那么前端请求该 ulr 会因为跨域报错:
+        Access to XMLHttpRequest at 'http://iwenwiki.com/api/FingerUnion/list.php' from origin 'http://localhost:8080' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+3.前端解决跨域问题
+    在 vue.config.js 文件的 module.exports 中添加如下代码: 
+        devServer: {
+            proxy: {
+                '/api': {
+                    target: '<url>',
+                    changeOrigin: true
+                } 
+            }
+        }
+
+    详细代码如下:
+        module.exports = defineConfig({
+        transpileDependencies: true,
+            devServer: {
+                proxy: {
+                    "/api": {
+                        target: "http://iwenwiki.com",
+                        changeOrigin: true,
+                    },
+                },
+            },
+        });
+
+4. 重启服务, 第3步配置的代理才能生效
+    yarn serve

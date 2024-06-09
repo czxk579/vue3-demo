@@ -1,0 +1,27 @@
+
+
+1. 子组件传递数据到父组件
+    子组件传递数据到父组件，需要在子组件中定义一个事件，然后在父组件中监听这个事件，当子组件触发这个事件时，父组件就能获取到子组件传递过来的数据。
+    Mycomponent.vue子组件
+    methods: {
+        clickHandle() {
+        // 参数1: 有意义的字符串
+        // 参数2: 传递的数据
+        // 调用 changeMessage(this.message)
+        this.$emit("changeMessage", this.message);
+        },
+    },
+    App.vue父组件
+        <Mycomponent @changeMessage="getMessage"></Mycomponent>
+        methods: {
+            getMessage(data) {
+                console.log(data);
+            },
+        }
+
+
+
+
+
+
+

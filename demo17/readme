@@ -1,0 +1,54 @@
+
+嵌套路由
+1. 创建子路由要加载显示的页面
+    如:
+        @/views/SubAboutView/Us.vue
+        @/views/SubAboutView/Info.vue
+
+2. 在路由配置文件中添加子路由配置
+    如:
+        ```
+        {
+            path: "/about",
+            name: "about",
+            // 重定向
+            redirect: "/about/us",
+            component: () => import("../views/AboutView.vue"),
+            // 设置子路由
+            children: [
+            {
+                path: "us",
+                name: "us",
+                component: () => import("../views/SubAboutView/Us.vue"),
+            },
+            {
+                path: "info",
+                name: "info",
+                component: () => import("../views/SubAboutView/Info.vue"),
+            },
+            ],
+        }
+        ```
+       
+3. 在父路由页面中添加路由显示的位置
+    如:
+        <router-view />
+
+4. 在父路由页面中添加路由跳转的链接
+    如:
+        <router-link to="/about/us">us</router-link>
+        <router-link to="/about/info">info</router-link>
+
+5. 重定向配置 
+    redirect:"/about/us" 或 redirect: { name: "us" }
+    表示默认显示的页面为 us 页面
+
+    
+
+
+
+
+
+
+
+

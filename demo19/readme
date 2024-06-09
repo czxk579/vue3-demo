@@ -1,0 +1,82 @@
+Vuex 状态管理核心
+
+1.最常用的核心概念: 
+    State 、 Getter 、 Mutation 、 Action
+
+2. Getter, 对Vuex中的数据进行过滤
+    ```
+    import { createStore } from 'vuex'
+    export default createStore({
+        state: {
+            counter: 10,
+        },
+        getters: {
+            getCounter(state) {
+                return state.counter > 0 ? state.counter : "counter数据异常";
+            },
+        },
+    });
+    ```
+
+3. Mutation, 用于修改Vuex中的数据
+    每个 mutation 都有一个字符串的事件类型 (type)和一个回调函数 (handler)。
+    这个回调函数就是我们实际进行状态更改的地方，并且它会接受 state 作为第一个参数
+    ```
+    import { createStore } from "vuex";
+    export default createStore({
+        state: {
+            counter: 10,
+        },
+        getters: {
+            getCounter(state) {
+            return state.counter > 0 ? state.counter : "counter数据异常";
+            },
+        },
+        // 同步修改方式
+        mutations: {
+            addCounter(state, num) {
+                state.counter += num;
+            },
+        },
+    });
+    ```
+
+
+4. Action, 用于提交 mutation
+    Action 提交的是 mutation, 而不是直接变更状态。Action 可以包含任意异步操作。
+    ```
+        import { createStore } from "vuex";
+        import axios from "axios";
+
+        export default createStore({
+            state: {
+                counter: 10,
+            },
+            getters: {
+                getCounter(state) {
+                return state.counter > 0 ? state.counter : "counter数据异常";
+                },
+            },
+            // 同步修改方式
+            mutations: {
+                addCounter(state, num) {
+                state.counter += num;
+                },
+            },
+            // 异步修改方式
+            actions: {
+                asyncAddCounter({ commit }) {
+                // http://127.0.0.1:4523/m2/4594302-0-default/182494806 是 apifox 模拟数据
+                axios
+                    .get("http://127.0.0.1:4523/m2/4594302-0-default/182494806")
+                    .then((res) => {
+                    console.log("counter = ", res.data.counter);
+                    commit("addCounter", res.data.counter);
+                    });
+                },
+            },
+        });
+    ```
+
+
+

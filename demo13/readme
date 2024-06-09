@@ -1,0 +1,22 @@
+
+
+封装 axios 请求
+
+1. src 目录下, 新建 utils 文件夹, 并创建文件 request.js 文件
+    request.js: 存储 axios 请求对象及其配置
+
+2. src 目录下, 新建 api 文件夹，并创建文件 index.js 和 path.js 文件
+    index.js: 存放网络请求方法
+    path.js: 存放网络请求请求路径
+
+3. 在组件中直接调用网络请求
+    import api from "../api/index"
+    api.getChengpin().then(res =>{
+        console.log(res.data);
+    })
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+1. 安装 vue 项目
+   npm install -g @vue/cli
+
+2. 查看是否安装成功
+   vue --version
+
+3. 创建一个新项目
+   vue create vue-demo
+   注意:
+   这里项目名称不能有大写字母, 否则会报错
+
+4. 进入项目
+   cd vue-demo
+
+5. 启动项目
+   npm run serve 或 yarn serve
+
+6.安装 Vue 高亮插件
+VSCode 中安装 vetur 或者 volar 都可, 前者针对 Vue2 版本,后者针对 Vue3 版本

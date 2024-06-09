@@ -1,0 +1,37 @@
+
+vuex 使用步骤
+    1. 安装 vuex 
+        npm install --save vuex
+
+    2. 配置 Vuex 文件
+        @/store/index.js
+        ```
+        import { createStore } from 'vuex'
+            export default createStore({
+            state: {
+                counter: 0 
+            }
+        })
+        ```
+
+    3. 在主文件(@/main.js)中引入Vuex
+        import store from "./store"
+        createApp(App).use(store).mount('#app')
+
+    4. 在组件中读取状态
+        4.1 第一种获取 counter 的方式
+            <p> counter = {{ $store.state.counter }}</p>
+
+        4.2 第二种获取 counter 的方式
+            <p> counter = {{ counter }}</p>
+            此外, 还需要在 script 中引入 vuex 及设置 computed 属性
+                // vuex提供的state快捷读取方式
+                import { mapState } from "vuex"
+                export default {
+                    name: 'HelloWorld',
+                    // 专门来读取 vuex 的数据
+                    computed:{
+                        ...mapState(["counter"])
+                    }
+                }
+    
