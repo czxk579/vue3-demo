@@ -1,0 +1,61 @@
+body {
+    background-color: #00c787; /* 设置背景颜色 */
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中对齐 */
+}
+.操作面板 {
+    background-color: white; /* 背景颜色 */
+    width: 300px; /* 宽度 */
+    padding: 30px; /* 内边距 */
+    margin-top: 50px; /* 上外边距 */
+    border-radius: 20px; /* 圆角 */
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.1); /* 阴影效果 */
+}
+.输入区域 {
+    display: flex; /* 使用 Flexbox 布局 */
+    border-radius: 25px; /* 圆角 */
+    overflow: hidden; /* 隐藏溢出部分 */
+}
+
+.文字欄 {
+    flex-grow: 1; /* 占据剩余空间 */
+    border: none; /* 无边框 */
+    background-color: #F0F4F8; /* 背景颜色 */
+    padding: 10px 15px; /* 内边距 */
+    outline: none; /* 无轮廓 */
+}
+
+.按鈕 {
+    background-color: #00C78C; /* 背景颜色 */
+    border: none; /* 无边框 */
+    color: white; /* 文字颜色 */
+    padding: 10px 15px; /* 内边距 */
+    cursor: pointer; /* 鼠标悬停时显示为指针 */
+}
+
+.清單 {
+    list-style-type: none; /* 无列表样式 */
+    padding: 0; /* 无内边距 */
+}
+.清單 li {
+    display: flex; /* 使用 Flexbox 布局 */
+    padding: 10px 0; /* 内边距 */
+    border-bottom: 1px solid #eee; /* 底部边框 */
+}
+.清單 label {
+    flex-grow: 1; /* 占据剩余空间 */
+}
+
+.打勾方塊 {
+    margin-right: 15px; /* 右边距 */
+}
+
+.垃圾桶 {
+    background: none; /* 无背景 */
+    border: none; /* 无边框 */
+    cursor: pointer; /* 鼠标悬停时显示为指针 */
+    opacity: 0.5; /* 透明度 */
+}
+.垃圾桶:hover {
+    opacity: 1; /* 鼠标悬停时透明度变为1 */
+}
